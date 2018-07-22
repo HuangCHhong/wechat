@@ -16,6 +16,7 @@ class Index extends CI_Controller
         $timestamp  = $_GET['timestamp'];
         $nonce = $_GET['nonce'];
         $echostr = $_GET['echostr'];
+        file_put_contents('logs/test.log',json_encode(array($signature,$timestamp,$nonce,$echostr)));
         $tmpArr = array($timestamp, $nonce,$token);
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode( $tmpArr );
@@ -27,4 +28,6 @@ class Index extends CI_Controller
             echo  false;
         }
     }
+
+
 }
